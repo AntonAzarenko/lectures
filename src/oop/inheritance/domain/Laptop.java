@@ -1,6 +1,6 @@
-package oop.inheritance;
+package oop.inheritance.domain;
 
-public class Laptop extends Product{
+public class Laptop extends Product<String> {
 
     private boolean keyboardLight;
 

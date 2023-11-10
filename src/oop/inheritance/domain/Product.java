@@ -1,8 +1,10 @@
-package oop.inheritance;
+package oop.inheritance.domain;
 
 import java.math.BigDecimal;
 
-public class Product {
+public class Product<T> extends BaseEntity<T> {
+
+    private T productId;
 
     private Type type;
     private String model;
@@ -12,6 +14,14 @@ public class Product {
     private double displaySize;
     private double weight;
     private int chargeCapacitor;
+
+    public T getProductId() {
+        return productId;
+    }
+
+    public void setProductId(T productId) {
+        this.productId = productId;
+    }
 
     public String getColor() {
         return color;

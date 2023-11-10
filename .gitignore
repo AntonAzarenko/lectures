@@ -32,7 +32,6 @@ target/
 
 out/
 build/
-database/
 
 .vscode/
 /.gradle

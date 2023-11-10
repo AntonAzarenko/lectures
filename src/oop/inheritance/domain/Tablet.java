@@ -1,6 +1,6 @@
-package oop.inheritance;
+package oop.inheritance.domain;
 
-public class Tablet extends Product{
+public class Tablet extends Product<Integer> {
 
     private double stilesLength;
 

@@ -1,4 +1,4 @@
-package oop.inheritance;
+package oop.inheritance.domain;
 
 public enum Type {
 

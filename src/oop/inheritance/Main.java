@@ -1,12 +1,15 @@
 package oop.inheritance;
 
+import oop.inheritance.controller.DistributorCallController;
+import oop.inheritance.domain.ActionType;
+import oop.inheritance.service.ConsoleTextWriter;
+
 import java.io.InputStreamReader;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
 
-    private DataBase dataBase = new DataBase();
+    private DistributorCallController callController = new DistributorCallController();
 
     public static void main(String[] args) {
         new Main().startApplication();
@@ -14,23 +17,10 @@ public class Main {
 
     private void startApplication() {
         Scanner scanner = new Scanner(new InputStreamReader(System.in));
-        System.out.println("Выберите действие. 1-посмотреть весть товар. 2 - найти товар, 3 - добавить товар");
+        ConsoleTextWriter.writeMessage("Выберите действие. 1 - посмотреть весть товар. 2 - найти товар, 3 - добавить товар");
         int action = scanner.nextInt();
-        if (action == 1) {
-            List<Product> products = dataBase.getProducts();
-            System.out.println(products);
-        } else if (action == 2) {
-            System.out.println("введите модель");
-            Product product = dataBase.getProductByModel(scanner.next());
-            System.out.println(product);
-        } else if (action == 3) {
-
-            ProductCreator productCreator = new ProductCreator();
-            Product product = productCreator.createProduct();
-            dataBase.save(product);
-        } else {
-            startApplication();
-        }
+        ActionType[] actionTypes = ActionType.values();
+        callController.doAction(actionTypes[action - 1]);
         startApplication();
     }
 }

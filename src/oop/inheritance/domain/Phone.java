@@ -1,6 +1,6 @@
-package oop.inheritance;
+package oop.inheritance.domain;
 
-public class Phone extends Product {
+public class Phone extends Product<Integer> {
 
     private String tvPlayer;
 
@@ -15,7 +15,7 @@ public class Phone extends Product {
     @Override
     public String toString() {
         return super.toString()
-        + " Phone{" +
+                + " Phone{" +
                 "tvPlayer='" + tvPlayer + '\'' +
                 '}';
     }

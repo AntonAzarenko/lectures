@@ -1,15 +1,17 @@
-package oop.inheritance;
+package oop.inheritance.service;
+
+import oop.inheritance.domain.*;
 
 import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.util.Scanner;
 
-public class ProductCreator {
+public class ProductCreatorService {
 
     private final Scanner scanner = new Scanner(new InputStreamReader(System.in));
 
-    public Product createProduct() {
-        Product result = null;
+    public Product<?> createProduct() {
+        Product<?> result = null;
         System.out.println("введите тип");
         String type = scanner.next();
         if (type.equalsIgnoreCase(Type.LAPTOP.name())) {
@@ -24,13 +26,13 @@ public class ProductCreator {
         return result;
     }
 
-    private Product createTablet() {
+    private Product<Integer> createTablet() {
         Tablet tablet = new Tablet();
         fillingProduct(Type.TABLET, tablet);
         return tablet;
     }
 
-    private Product createPhone() {
+    private Product<Integer> createPhone() {
         Phone phone = new Phone();
         fillingProduct(Type.PHONE, phone);
         System.out.println("введите тв плеер");
@@ -38,13 +40,13 @@ public class ProductCreator {
         return phone;
     }
 
-    private Product createLaptop() {
+    private Product<String> createLaptop() {
         Laptop laptop = new Laptop();
         fillingProduct(Type.LAPTOP, laptop);
         return laptop;
     }
 
-    private void fillingProduct(Type type, Product product) {
+    private void fillingProduct(Type type, Product<?> product) {
         String model;
         BigDecimal cost;
         String vendor;
